@@ -8,13 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
   </head>
-    <main role="main">
   <body>
     <header class="site-header">
       <h1 class="site-header--heading">Flickrish</h1>
     </header>
-    <button class="btn">Search</button>
-    <main class="container">
+    <fieldset class="search-form">
+      <legend class="search-form__title">Search Flickr</legend>
+      <label class="search-form__name-label" for="search-input">Search:</label>
+      <input type="text" class="search-form__input" id="flickr-search" name="search-input" role="textbox" value="& dogs">
+      <button class="btn">Show</button>
+    </fieldset>
+
+    <main class="photo-container">
 
     </main>
 

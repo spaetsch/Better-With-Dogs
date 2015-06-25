@@ -1,7 +1,11 @@
+
+
 $('.btn').click(function() {
+  var $flickrSearch = $("#flickr-search").val() + " & dog";
+
   var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
   var options = {
-    tags: "YARN",
+    tags: $flickrSearch,
     format: "json"
   };
   function showPhotos(data) {
@@ -12,8 +16,8 @@ $('.btn').click(function() {
       photoList += '<img src="' + photo.media.m + '"></a></li>';
     });
     photoList += '</ul>';
-    $('.container').html(photoList);
-
+    $('.photo-container').html(photoList);
   }
+
   $.getJSON(flickrAPI, options, showPhotos);
 });

@@ -30,9 +30,12 @@ $('#search-form').submit(function(event) {
 
 
 $("#withDogs").click(function(event){
-  console.log("you have a soul")
+  console.log("you have a soul");
+  $('#verdict').html("Dogs rule!");
+
 });
 
 $("#withoutDogs").click(function(event){
-  console.log("you are soulless and empty")
+  console.log("you are soulless and empty");
+  $('#verdict').html("Dogs drool...");
 });

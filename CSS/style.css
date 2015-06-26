@@ -55,13 +55,11 @@ img {
 
 /* Media Query */
 
-
 @media only screen and (min-width: 20em) { /*phones */
   .option-container{
     width: 75%;
   }
 }
-
 
 @media only screen and (min-width: 45em) { /* phablet or bigger */
   .option-container{

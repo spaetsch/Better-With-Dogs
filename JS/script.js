@@ -1,16 +1,12 @@
-
-
-$('#search-form').submit(function(event) {
-  var $flickrSearch = $("#flickr-search").val();
-
-  console.log("sending search tags:", $flickrSearch);
-
   var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
   var options = {
     tags: $flickrSearch,
     format: "json"
   };
+
+
   function showPhotos(data) {
+    console.log(data);
     var photoList = '<ul>';
     $.each(data.items, function(i, photo) {
       photoList += '<li>';
@@ -18,17 +14,23 @@ $('#search-form').submit(function(event) {
       photoList += '<img src="' + photo.media.m + '"></a></li>';
     });
     photoList += '</ul>';
-    $('.photo-container').html(photoList);
+    $('#search-results').html(photoList);
   }
 
-  event.preventDefault();
 
+
+$('#search-form').submit(function(event) {
+  var $flickrSearch = $("#flickr-search").val();
+  console.log("sending search tags:", $flickrSearch);
+  event.preventDefault();
   $.getJSON(flickrAPI, options, showPhotos);
+
 });
 
 
+
 $('#search-formDog').submit(function(event) {
-  var $flickrSearchDog = $("#flickr-searchDog").val() + " & dog";
+  var $flickrSearchDog = $("#flickr-searchDog").val() + " ,dog";
 
   console.log("sending search tags:", $flickrSearchDog);
 
@@ -45,7 +47,7 @@ $('#search-formDog').submit(function(event) {
       photoList += '<img src="' + photo.media.m + '"></a></li>';
     });
     photoList += '</ul>';
-    $('.photo-container').html(photoList);
+    $('#search-resultsDog').html(photoList);
   }
 
   event.preventDefault();

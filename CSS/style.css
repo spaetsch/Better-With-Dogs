@@ -1,0 +1,27 @@
+body {
+  background-color: #A3BEC2;
+}
+
+form {
+  padding:1em;
+  margin:1em;
+  background-color: #768A8C
+}
+
+.photo-container {
+  background-color: #768A8C;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+form {
+  width:40%;
+}
+
+.site-header {
+  width:100%;
+}

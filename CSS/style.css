@@ -1,60 +1,70 @@
+/* Basic Elements */
+
 * {
   box-sizing: border-box;
 }
-
 body {
   background-color: #A3BEC2;
   padding: 5em 2em;
 }
-
 form {
   width: 50%;
-  padding:1em;
-  margin:1em;
+  padding: 1em;
+  margin: 1em;
   background-color: #768A8C
 }
-
-/*.photo-container {
-  background-color: #768A8C;
-}*/
-
 .flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-      justify-content: space-around;
-    align-content: flex-start;
-    align-items: flex-start;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: center;
 }
-
-/*form {
+img {
   width:100%;
 }
-*/
+
+/* Layout elements */
+
 .ballot {
   width:100%;
-  background-color: blue;
+  background-color: #768A8C;
 }
-
-/*#left1 {
-  width: 40%;
-  background-color: red;
-}
-
-#right1 {
-  width:40%;
-  background-color: green;
-}*/
-
 .photo-container{
-  width: 40%;
-  margin: 1em;
-  padding:2em;
-  background-color: red;
-
+  background-color: gray;
+  min-height: 5em;
 }
-
-
+.option-container{
+  /*width: 40%;*/
+  margin: 1em;
+  padding: 1em;
+  background-color: #3F6F75;
+  min-height: 10em
+  text-align: center;
+}
 .site-header {
   width:100%;
+}
+#withDogs,
+#withoutDogs {
+  max-width: 10em;
+  margin: 1em auto;
+  display: block;
+}
+
+/* Media Query */
+
+
+@media only screen and (min-width: 20em) { /*phones */
+  .option-container{
+    width: 75%;
+  }
+}
+
+
+@media only screen and (min-width: 45em) { /* phablet or bigger */
+  .option-container{
+    width: 40%;
+  }
 }

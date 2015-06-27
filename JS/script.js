@@ -13,17 +13,22 @@ var search = function(){
     var nextDog = Math.floor(Math.random() * 20) + 1;
     console.log("nextDog", nextDog);
     console.log(data.items);
-    var firstDogPhoto = '<a href="' + data.items[nextDog].link + '"><img src="' + data.items[nextDog].media.m + '"></a>';
+    var currentDogPhoto = '<img src="' + data.items[nextDog].media.m + '">';
+    var currentDogTitle = '<a href="' + data.items[nextDog].link + '">' + data.items[nextDog].title + '</a>';
     $('#withHeader').html($flickrSearch + " with dogs");
-    $('#photo-dog').html(firstDogPhoto);
+    $('#photo-dog').html(currentDogPhoto);
+    $("#dogCaption").html(currentDogTitle);
   }
   function showPhotosNoDog(data) {
     var nextItem = Math.floor(Math.random() * 20) + 1;
     console.log("next Item", nextItem);
     console.log(data.items);
-    var firstPhoto = '<a href="' + data.items[nextItem].link + '"><img src="' + data.items[nextItem].media.m + '"></a>';
+    var currentPhoto = '<img src="' + data.items[nextItem].media.m + '">';
+    var currentTitle = '<a href="' + data.items[nextItem].link + '">' + data.items[nextItem].title + '</a>';
     $('#withoutHeader').html($flickrSearch + " without dogs");
-    $('#photo-nodog').html(firstPhoto);
+    $('#photo-nodog').html(currentPhoto);
+    $("#nodogCaption").html(currentTitle);
+
   }
   $.getJSON(flickrAPI, options, showPhotosNoDog);
   $.getJSON(flickrAPI, optionsWDog, showPhotosDog);
@@ -35,9 +40,8 @@ var clearChoices = function(){
 }
 
 var clearVerdict = function(){
-  $("#verdict").html("Cast your vote!");
+  $("#verdict").html("");
 }
-
 
 $('#search-form').submit(function(event) {
   clearVerdict();
@@ -52,34 +56,25 @@ $("#again").click(function(event){
 });
 
 $("#withDogs").click(function(event){
-  console.log("you have a soul");
   $("#photo-dog").addClass("highlight");
   $("#photo-nodog").removeClass("highlight");
 });
 
 $("#withoutDogs").click(function(event){
-  console.log("you are soulless and empty");
-
   $("#photo-nodog").addClass("highlight");
   $("#photo-dog").removeClass("highlight");
 });
 
 $("#vote").click(function(event){
-  console.log("voting");
-
   var checkNoDog = $("#photo-nodog").hasClass("highlight");
   var checkDog = $("#photo-dog").hasClass("highlight");
-
   if (checkNoDog){
-    $("#verdict").html("Dogs rule");
-
+    $("#verdict").html("Dogs drool...");
   } else if (checkDog){
-    $("#verdict").html("Dogs drool");
+    $("#verdict").html("Dogs rule!");
   } else {
     $("#verdict").html("Please make a selection");
-
   }
-
   clearChoices();
 });
 

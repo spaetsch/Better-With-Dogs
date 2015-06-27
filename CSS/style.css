@@ -8,6 +8,9 @@ body {
   background-color: #A3BEC2;
   padding: 5em 2em;
 }
+a {
+  text-decoration: none;
+}
 form {
   width: 50%;
   padding: 1em;
@@ -23,56 +26,106 @@ form {
   align-items: center;
 }
 img {
-  width:100%;
+  width: 100%;
+  display: block;
+}
+button {
+  background-color: #69B8C2;
+  color: white;
+  border-radius: 0.5em;
+}
+button:hover{
+  background-color: #78D2DE;
 }
 
-/* Layout elements */
+.verdictButtons{
+  width:35%;
+}
+
+
+.verdictResponse{
+  width:64%;
+}
+
+
+/* Layout */
 
 .ballot {
-  width:100%;
+  width: 100%;
   background-color: #768A8C;
 }
-.photo-container{
-  background-color: gray;
+.photo-container {
   min-height: 8em;
 }
-.option-container{
+.option-container {
   margin: 1em 0;
   padding: 1em;
   background-color: #3F6F75;
   min-height: 8em
   text-align: center;
 }
-.site-header {
-  width:100%;
+.photo-container{
+  text-align: center;
 }
-#withDogs,
-#withoutDogs {
+.site-header {
+  width: 100%;
+}
+.site-header__heading,
+#search-form{
+  display: inline-block;
+}
+#withHeader, #withoutHeader {
+  text-transform: capitalize;
+}
+#withDogs, #withoutDogs {
   max-width: 8em;
   margin: 1em auto;
   display: block;
 }
-
 #verdict {
   min-height: 4em;
 }
-
 .highlight {
-  border: solid blue 2px;
+  border: solid #78D2DE 0.5em;
 }
-
+#vote {
+  padding: 0.5em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+#verdict{
+  font-size: 2em;
+}
+#vote, #again {
+  margin:1em 0;
+  width:90%;
+}
+.snapshot {
+  border: solid black 1px;
+  background-color: white;
+}
+figcaption{
+  font-style: italic;
+}
+figure{
+}
 
 
 /* Media Query */
 
 @media only screen and (min-width: 20em) { /*phones */
   .option-container{
-    width: 75%;
+    width: 48%;
   }
+  .verdict-container {
+    width:75%;
+  }
+
 }
 
 @media only screen and (min-width: 55em) { /* phablet or bigger */
-  .option-container{
+  .option-container,
+  .verdict-container {
     width: 32%;
   }
 }

@@ -6,12 +6,12 @@
     <title>Better with Dogs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+  <!--   <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header flex-container">
       <h1 class="site-header__heading">Is It Better with Dogs?</h1>
         <form id="search-form">
         <fieldset>
@@ -23,30 +23,31 @@
       </form>
     </header>
 
-
-
     <section class="ballot flex-container">
-      <div class="option-container">
+      <figure class="snapshot option-container">
         <h3 id="withoutHeader"></h3>
+        <div class="photo-container" id="photo-nodog">Without Dogs </div>
+        <figcaption id="nodogCaption"></figcaption>
+        <button id="withoutDogs">Select</button>
+      </figure>
 
-        <div class="photo-container" id="photo-nodog"> </div>
-        <button id="withoutDogs">Choose</button>
-      </div>
-      <div class="option-container">
+      <figure class="snapshot option-container">
         <h3 id="withHeader"></h3>
-        <div class="photo-container" id="photo-dog"></div>
-        <button id="withDogs">Choose</button>
-      </div>
-      <div class="option-container">
-        <button id="vote">VOTE</button>
-        <h2>Verdict</h2>
-
-        <p id="verdict">  </p>
-        <button id="again">More results?</button>
+        <div class="photo-container" id="photo-dog">With Dogs</div>
+        <figcaption id="dogCaption"></figcaption>
+        <button id="withDogs">Select</button>
+      </figure>
+      <div class="verdict-container flex-container">
+        <div class="verdictButtons">
+          <button id="vote">VOTE</button>
+          <button id="again">More results</button>
+        </div>
+        <div class="verdictResponse">
+          <h2>And the Verdict is...</h2>
+          <p id="verdict"></p>
+        </div>
       </div>
     </section>
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

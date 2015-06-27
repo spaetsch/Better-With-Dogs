@@ -1,6 +1,3 @@
-
-
-
 var search = function(){
   var $flickrSearch = $("#flickr-search").val();
   var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
@@ -32,12 +29,14 @@ var search = function(){
   $.getJSON(flickrAPI, optionsWDog, showPhotosDog);
 }
 
-
 $('#search-form').submit(function(event) {
   search();
   event.preventDefault();
 });
 
+$("#again").click(function(event){
+  search();
+});
 
 $("#withDogs").click(function(event){
   console.log("you have a soul");
@@ -54,7 +53,4 @@ $("#withoutDogs").click(function(event){
   $("#photo-dog").removeClass("highlight");
 });
 
-$("#again").click(function(event){
-  search();
 
-});

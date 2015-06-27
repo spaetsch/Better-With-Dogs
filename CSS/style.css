@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 body {
+  font-family: 'Alegreya Sans', sans-serif;
   background-color: #A3BEC2;
   padding: 5em 2em;
 }
@@ -33,13 +34,13 @@ img {
 }
 .photo-container{
   background-color: gray;
-  min-height: 5em;
+  min-height: 8em;
 }
 .option-container{
-  margin: 1em;
+  margin: 1em 0;
   padding: 1em;
   background-color: #3F6F75;
-  min-height: 10em
+  min-height: 8em
   text-align: center;
 }
 .site-header {
@@ -47,20 +48,18 @@ img {
 }
 #withDogs,
 #withoutDogs {
-  max-width: 10em;
+  max-width: 8em;
   margin: 1em auto;
   display: block;
 }
 
 #verdict {
-
+  min-height: 4em;
 }
-
 
 .highlight {
   border: solid blue 2px;
 }
-
 
 /* Card Flip */
 .card-container {
@@ -104,8 +103,8 @@ img {
   }
 }
 
-@media only screen and (min-width: 45em) { /* phablet or bigger */
+@media only screen and (min-width: 55em) { /* phablet or bigger */
   .option-container{
-    width: 25%;
+    width: 32%;
   }
 }

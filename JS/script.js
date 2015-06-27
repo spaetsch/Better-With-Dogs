@@ -1,5 +1,7 @@
 
-$('#search-form').submit(function(event) {
+
+
+var search = function(){
   var $flickrSearch = $("#flickr-search").val();
   var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
   var options = {
@@ -12,19 +14,28 @@ $('#search-form').submit(function(event) {
   };
   function showPhotosDog(data) {
     var nextDog = Math.floor(Math.random() * 20) + 1;
+    console.log("nextDog", nextDog);
+    console.log(data.items);
     var firstDogPhoto = '<a href="' + data.items[nextDog].link + '"><img src="' + data.items[nextDog].media.m + '"></a>';
     $('#withHeader').html($flickrSearch + " with dogs");
     $('#photo-dog').html(firstDogPhoto);
   }
   function showPhotosNoDog(data) {
     var nextItem = Math.floor(Math.random() * 20) + 1;
+    console.log("next Item", nextItem);
+    console.log(data.items);
     var firstPhoto = '<a href="' + data.items[nextItem].link + '"><img src="' + data.items[nextItem].media.m + '"></a>';
     $('#withoutHeader').html($flickrSearch + " without dogs");
     $('#photo-nodog').html(firstPhoto);
   }
-  event.preventDefault();
   $.getJSON(flickrAPI, options, showPhotosNoDog);
   $.getJSON(flickrAPI, optionsWDog, showPhotosDog);
+}
+
+
+$('#search-form').submit(function(event) {
+  search();
+  event.preventDefault();
 });
 
 
@@ -41,4 +52,9 @@ $("#withoutDogs").click(function(event){
 
   $("#photo-nodog").addClass("highlight");
   $("#photo-dog").removeClass("highlight");
+});
+
+$("#again").click(function(event){
+  search();
+
 });

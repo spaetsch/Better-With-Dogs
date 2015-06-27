@@ -36,7 +36,6 @@ img {
   min-height: 5em;
 }
 .option-container{
-  /*width: 40%;*/
   margin: 1em;
   padding: 1em;
   background-color: #3F6F75;
@@ -59,6 +58,46 @@ img {
   padding: 1em 0;
 }
 
+
+.highlight {
+  border: solid blue 2px;
+}
+
+
+/* Card Flip */
+.card-container {
+  cursor: pointer;
+  height: 150px;
+  perspective: 600;
+  position: relative;
+  width: 150px;
+}
+.card {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.card:hover {
+  transform: rotateY(180deg);
+}
+.card .side {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.card .back {
+  background: #eaeaed;
+  color: #0087cc;
+  line-height: 150px;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
 /* Media Query */
 
 @media only screen and (min-width: 20em) { /*phones */
@@ -69,6 +108,6 @@ img {
 
 @media only screen and (min-width: 45em) { /* phablet or bigger */
   .option-container{
-    width: 40%;
+    width: 25%;
   }
 }

@@ -30,12 +30,15 @@ $('#search-form').submit(function(event) {
 
 $("#withDogs").click(function(event){
   console.log("you have a soul");
+  $("#verdict").html("Dogs rule");
   $("#photo-dog").addClass("highlight");
   $("#photo-nodog").removeClass("highlight");
 });
 
 $("#withoutDogs").click(function(event){
   console.log("you are soulless and empty");
+  $("#verdict").html("Dogs drool");
+
   $("#photo-nodog").addClass("highlight");
   $("#photo-dog").removeClass("highlight");
 });

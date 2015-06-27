@@ -15,7 +15,7 @@ var search = function(){
     console.log(data.items);
     var currentDogPhoto = '<img src="' + data.items[nextDog].media.m + '">';
     var currentDogTitle = '<a href="' + data.items[nextDog].link + '">' + data.items[nextDog].title + '</a>';
-    $('#withHeader').html($flickrSearch + " with dogs");
+    $('#dogHeader').html($flickrSearch + " with dogs");
     $('#photo-dog').html(currentDogPhoto);
     $("#dogCaption").html(currentDogTitle);
   }
@@ -25,7 +25,7 @@ var search = function(){
     console.log(data.items);
     var currentPhoto = '<img src="' + data.items[nextItem].media.m + '">';
     var currentTitle = '<a href="' + data.items[nextItem].link + '">' + data.items[nextItem].title + '</a>';
-    $('#withoutHeader').html($flickrSearch + " without dogs");
+    $('#nodogHeader').html($flickrSearch + " without dogs");
     $('#photo-nodog').html(currentPhoto);
     $("#nodogCaption").html(currentTitle);
 
@@ -40,7 +40,7 @@ var clearChoices = function(){
 }
 
 var clearVerdict = function(){
-  $("#verdict").html("");
+  $("#verdict-text").html("");
 }
 
 $('#search-form').submit(function(event) {
@@ -49,31 +49,31 @@ $('#search-form').submit(function(event) {
   event.preventDefault();
 });
 
-$("#again").click(function(event){
+$("#again-button").click(function(event){
   clearChoices();
   clearVerdict();
   search();
 });
 
-$("#withDogs").click(function(event){
+$("#withDogs-button").click(function(event){
   $("#photo-dog").addClass("highlight");
   $("#photo-nodog").removeClass("highlight");
 });
 
-$("#withoutDogs").click(function(event){
+$("#withoutDogs-button").click(function(event){
   $("#photo-nodog").addClass("highlight");
   $("#photo-dog").removeClass("highlight");
 });
 
-$("#vote").click(function(event){
+$("#vote-button").click(function(event){
   var checkNoDog = $("#photo-nodog").hasClass("highlight");
   var checkDog = $("#photo-dog").hasClass("highlight");
   if (checkNoDog){
-    $("#verdict").html("Dogs drool...");
+    $("#verdict-text").html("Dogs drool...");
   } else if (checkDog){
-    $("#verdict").html("Dogs rule!");
+    $("#verdict-text").html("Dogs rule!");
   } else {
-    $("#verdict").html("Please make a selection");
+    $("#verdict-text").html("Please make a selection");
   }
   clearChoices();
 });

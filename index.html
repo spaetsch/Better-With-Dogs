@@ -6,7 +6,7 @@
     <title>Better with Dogs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--   <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
   </head>
@@ -23,28 +23,28 @@
       </form>
     </header>
 
-    <section class="ballot flex-container">
+    <section class="ballot-container flex-container">
       <figure class="snapshot option-container">
-        <h3 id="withoutHeader"></h3>
+        <h3 id="nodogHeader"></h3>
         <div class="photo-container" id="photo-nodog">Without Dogs </div>
         <figcaption id="nodogCaption"></figcaption>
-        <button id="withoutDogs">Select</button>
+        <button id="withoutDogs-button">Select</button>
       </figure>
 
       <figure class="snapshot option-container">
-        <h3 id="withHeader"></h3>
+        <h3 id="dogHeader"></h3>
         <div class="photo-container" id="photo-dog">With Dogs</div>
         <figcaption id="dogCaption"></figcaption>
-        <button id="withDogs">Select</button>
+        <button id="withDogs-button">Select</button>
       </figure>
-      <div class="verdict-container flex-container">
-        <div class="verdictButtons">
-          <button id="vote">VOTE</button>
-          <button id="again">More results</button>
+      <div class="option-container flex-container">
+        <div class="verdictButtons-container">
+          <button id="vote-button">VOTE</button>
+          <button id="again-button">Another matchup</button>
         </div>
-        <div class="verdictResponse">
+        <div class="verdictResponse-container">
           <h2>And the Verdict is...</h2>
-          <p id="verdict"></p>
+          <p id="verdict-text"></p>
         </div>
       </div>
     </section>

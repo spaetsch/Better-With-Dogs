@@ -29,28 +29,57 @@ var search = function(){
   $.getJSON(flickrAPI, optionsWDog, showPhotosDog);
 }
 
+var clearChoices = function(){
+  $("#photo-nodog").removeClass("highlight");
+  $("#photo-dog").removeClass("highlight");
+}
+
+var clearVerdict = function(){
+  $("#verdict").html("Cast your vote!");
+}
+
+
 $('#search-form').submit(function(event) {
+  clearVerdict();
   search();
   event.preventDefault();
 });
 
 $("#again").click(function(event){
+  clearChoices();
+  clearVerdict();
   search();
 });
 
 $("#withDogs").click(function(event){
   console.log("you have a soul");
-  $("#verdict").html("Dogs rule");
   $("#photo-dog").addClass("highlight");
   $("#photo-nodog").removeClass("highlight");
 });
 
 $("#withoutDogs").click(function(event){
   console.log("you are soulless and empty");
-  $("#verdict").html("Dogs drool");
 
   $("#photo-nodog").addClass("highlight");
   $("#photo-dog").removeClass("highlight");
 });
 
+$("#vote").click(function(event){
+  console.log("voting");
+
+  var checkNoDog = $("#photo-nodog").hasClass("highlight");
+  var checkDog = $("#photo-dog").hasClass("highlight");
+
+  if (checkNoDog){
+    $("#verdict").html("Dogs rule");
+
+  } else if (checkDog){
+    $("#verdict").html("Dogs drool");
+  } else {
+    $("#verdict").html("Please make a selection");
+
+  }
+
+  clearChoices();
+});
 

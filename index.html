@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Better with Dogs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+  </head>
+  <body>
+    <header class="site-header flex-container">
+      <h1 class="site-header__heading">Is It Better with Dogs?</h1>
+        <form id="search-form">
+        <fieldset>
+          <legend class="search-form__title">Search Flickr</legend>
+          <label class="search-form__name-label" for="search-input">New Search:</label>
+          <input type="text" class="search-form__input" id="flickr-search" name="search-input" role="textbox">
+          <input type="submit" value="Go">
+        </fieldset>
+      </form>
+    </header>
+
+    <section class="ballot-container flex-container">
+      <figure class="snapshot option-container">
+        <h3 id="nodogHeader"></h3>
+        <div class="photo-container" id="photo-nodog">Without Dogs </div>
+        <figcaption id="nodogCaption"></figcaption>
+        <button id="withoutDogs-button">Select</button>
+      </figure>
+
+      <figure class="snapshot option-container">
+        <h3 id="dogHeader"></h3>
+        <div class="photo-container" id="photo-dog">With Dogs</div>
+        <figcaption id="dogCaption"></figcaption>
+        <button id="withDogs-button">Select</button>
+      </figure>
+      <div class="option-container flex-container">
+        <div class="verdictButtons-container">
+          <button id="vote-button">VOTE</button>
+          <button id="again-button">Another matchup</button>
+        </div>
+        <div class="verdictResponse-container">
+          <h2>And the Verdict is...</h2>
+          <p id="verdict-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+  </body>
+</html>

@@ -1,11 +1,9 @@
 var search = function(){
+  //get search term entered by user
   var $flickrSearch = $("#flickr-search").val();
-  // using the public feed
- /// var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 
- //using feed that requires API key
+  //using feed that requires API key
   var flickrBaseURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search"
-  //&api_key=f9181ad6f35e3b3481e4840dc95d8905&tags=potato&sort=relevance&format=json&nojsoncallback=1
 
   var api_key = "&api_key=fa3e0832f30851339c73d3dd3c27f961";
   var tags = "&tags=" + $flickrSearch;
@@ -14,23 +12,21 @@ var search = function(){
   var format = "&format=json";
   var nojsoncallback = "&nojsoncallback=1";
 
+  //assemble the parts into complete request
   var flickrReq = flickrBaseURL + api_key + tags + sort + format + nojsoncallback;
   var flickrReqDog = flickrBaseURL + api_key + tagsDog + sort + format + nojsoncallback;
 
-  console.log("flickrReq", flickrReq);
 
   function showPhotosDog(data) {
+    //randomly choose a photo from the array returned
     var nextDog = Math.floor(Math.random() * 20) + 1;
-    //console.log("nextDog", nextDog);
-    console.log("data", data);
-    console.log("data.photos.photo[nextDog]",data.photos.photo[nextDog] );
-    // var currentDogPhoto = '<img src="' + data.items[nextDog].media.m + '">';
-    // var currentDogTitle = '<a href="' + data.items[nextDog].link + '">' + data.items[nextDog].title + '</a>';
+
     var farm = data.photos.photo[nextDog].farm;
     var server = data.photos.photo[nextDog].server;
     var id = data.photos.photo[nextDog].id;
     var secret = data.photos.photo[nextDog].secret;
 
+    //assemble the parts into a complete URL for the photo
     var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
     + "/" + id + "_" + secret + "_b.jpg";  //underscore letter signals size of resultb
     // z medium 640, 640 on longest side
@@ -42,6 +38,7 @@ var search = function(){
     var attrURL = "https://www.flickr.com/photos/" + owner + "/" + id + "/";
     var title = data.photos.photo[nextDog].title;
 
+    //assemble HTML for img and title link
     var currentDogPhoto = '<img src="' + photoURL + '">';
     var currentDogTitle = '<a href="' + attrURL + '">' + title + '</a>';
 
@@ -49,22 +46,37 @@ var search = function(){
     $('#photo-dog').html(currentDogPhoto);
     $("#dogCaption").html(currentDogTitle);
   }
+
   function showPhotosNoDog(data) {
     var nextItem = Math.floor(Math.random() * 20) + 1;
-   // console.log("next no dog", nextItem);
-    console.log("data.items", data.items);
-    var currentPhoto = '<img src="' + data.items[nextItem].media.m + '">';
-    var currentTitle = '<a href="' + data.items[nextItem].link + '">' + data.items[nextItem].title + '</a>';
+
+    var farm = data.photos.photo[nextItem].farm;
+    var server = data.photos.photo[nextItem].server;
+    var id = data.photos.photo[nextItem].id;
+    var secret = data.photos.photo[nextItem].secret;
+
+    //assemble the parts into a complete URL for the photo
+    var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
+    + "/" + id + "_" + secret + "_b.jpg";  //underscore letter signals size of resultb
+    // z medium 640, 640 on longest side
+    // c medium 800, 800 on longest side
+    // b large, 1024 on longest side
+    // h large 1600, 1600 on longest side
+
+    var owner = data.photos.photo[nextItem].owner;
+    var attrURL = "https://www.flickr.com/photos/" + owner + "/" + id + "/";
+    var title = data.photos.photo[nextItem].title;
+
+    //assemble HTML for img and title link
+    var currentPhoto = '<img src="' + photoURL + '">';
+    var currentTitle = '<a href="' + attrURL + '">' + title + '</a>';
     $('#nodogHeader').html($flickrSearch + " without dogs");
     $('#photo-nodog').html(currentPhoto);
     $("#nodogCaption").html(currentTitle);
 
   }
-  console.log("before get json");
   $.getJSON(flickrReq, showPhotosNoDog);
   $.getJSON(flickrReqDog, showPhotosDog);
-  //$.getJSON(flickrAPI, options, showPhotosNoDog);
-  //$.getJSON(flickrAPI, optionsWDog, showPhotosDog);
 }
 
 var clearChoices = function(){

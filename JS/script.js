@@ -9,7 +9,7 @@ var search = function(){
 
   var api_key = "&api_key=fa3e0832f30851339c73d3dd3c27f961";
   var tags = "&tags=" + $flickrSearch;
-  var tagsDog = "&tags=" + $flickrSearch + ",dog";
+  var tagsDog = "&tags=" + $flickrSearch + ",dog,pet";
   var sort = "&sort=relevance";
   var format = "&format=json";
   var nojsoncallback = "&nojsoncallback=1";
@@ -23,8 +23,28 @@ var search = function(){
     var nextDog = Math.floor(Math.random() * 20) + 1;
     //console.log("nextDog", nextDog);
     console.log("data", data);
-    var currentDogPhoto = '<img src="' + data.items[nextDog].media.m + '">';
-    var currentDogTitle = '<a href="' + data.items[nextDog].link + '">' + data.items[nextDog].title + '</a>';
+    console.log("data.photos.photo[nextDog]",data.photos.photo[nextDog] );
+    // var currentDogPhoto = '<img src="' + data.items[nextDog].media.m + '">';
+    // var currentDogTitle = '<a href="' + data.items[nextDog].link + '">' + data.items[nextDog].title + '</a>';
+    var farm = data.photos.photo[nextDog].farm;
+    var server = data.photos.photo[nextDog].server;
+    var id = data.photos.photo[nextDog].id;
+    var secret = data.photos.photo[nextDog].secret;
+
+    var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
+    + "/" + id + "_" + secret + "_b.jpg";  //underscore letter signals size of resultb
+    // z medium 640, 640 on longest side
+    // c medium 800, 800 on longest side
+    // b large, 1024 on longest side
+    // h large 1600, 1600 on longest side
+
+    var owner = data.photos.photo[nextDog].owner;
+    var attrURL = "https://www.flickr.com/photos/" + owner + "/" + id + "/";
+    var title = data.photos.photo[nextDog].title;
+
+    var currentDogPhoto = '<img src="' + photoURL + '">';
+    var currentDogTitle = '<a href="' + attrURL + '">' + title + '</a>';
+
     $('#dogHeader').html($flickrSearch + " with dogs");
     $('#photo-dog').html(currentDogPhoto);
     $("#dogCaption").html(currentDogTitle);

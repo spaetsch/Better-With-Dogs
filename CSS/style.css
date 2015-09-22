@@ -3,26 +3,19 @@
 * {
   box-sizing: border-box;
 }
-body {
+/*body {
   padding: 2em 1em;
-}
-form {
+}*/
+/*form {
   width: 50%;
   padding: 1em;
   margin: 1em;
-}
+}*/
 img {
   width: 100%;
   display: block;
 }
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: flex-start;
-  align-items: center;
-}
+
 
 /* LAYOUT */
 /*---headers-*/
@@ -35,27 +28,27 @@ img {
 }
 
 /*---containers-*/
-.ballot-container {
+/*.ballot-container {
   width: 100%;
-}
+}*/
 .photo-container {
-  min-height: 8em;
+  max-height: 38em;
   text-align: center;
 }
-.option-container {
+/*.option-container {
   margin: 1em 0;
   padding: 1em;
   min-height: 8em
   text-align: center;
-}
-.verdictButtons-container{
+}*/
+/*.verdictButtons-container{
   width: 35%;
 }
 .verdictResponse-container{
   width: 64%;
-}
+}*/
 /*---buttons-*/
-#withDogs-button,
+/*#withDogs-button,
 #withoutDogs-button {
   max-width: 8em;
   margin: 1em auto;
@@ -70,18 +63,18 @@ img {
 #again-button {
   margin: 1em 0;
   width: 90%;
-}
+}*/
 
 /*---other layout-*/
-#verdict-text {
+/*#verdict-text {
   min-height: 4em;
   font-size: 2em;
-}
+}*/
 
 /* Media Query */
 
-@media only screen and (min-width: 20em) { /*phones */
-  .option-container{
+/*@media only screen and (min-width: 20em) { /*phones */
+ /* .option-container{
     width: 48%;
   }
   .verdict-container {
@@ -89,11 +82,11 @@ img {
   }
 }
 @media only screen and (min-width: 55em) { /* phablet or bigger */
-  .option-container,
+  /*.option-container,
   .verdict-container {
     width: 32%;
   }
-}
+}*/
 
 /* THEME */
 

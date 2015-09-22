@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="css/skeleton.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
   </head>
-  <body>
-    <header class="site-header flex-container">
+  <body class="container">
+    <header class="site-header">
       <h1 class="site-header__heading">Is It Better with Dogs?</h1>
         <form id="search-form">
         <fieldset>
@@ -24,23 +24,24 @@
       </form>
     </header>
 
-    <section class="ballot-container flex-container">
+    <div class="ballot-container row">
 
-      <figure class="snapshot option-container">
+      <div class="snapshot option-container six columns">
         <h3 id="nodogHeader"></h3>
         <div class="photo-container" id="photo-nodog">Without Dogs </div>
         <figcaption id="nodogCaption"></figcaption>
         <button id="withoutDogs-button">Select</button>
-      </figure>
+      </div>
 
-      <figure class="snapshot option-container">
+      <div class="snapshot option-container six columns">
         <h3 id="dogHeader"></h3>
         <div class="photo-container" id="photo-dog">With Dogs</div>
         <figcaption id="dogCaption"></figcaption>
         <button id="withDogs-button">Select</button>
-      </figure>
-
-      <div class="option-container flex-container">
+      </div>
+</div>
+<section class="row">
+      <div class="option-container">
         <div class="verdictButtons-container">
           <button id="vote-button">VOTE</button>
           <button id="again-button">Another matchup</button>

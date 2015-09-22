@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
   </head>
   <body class="container">
+
     <header class="site-header">
       <h1 class="site-header__heading">Is It Better with Dogs?</h1>
         <form id="search-form">
@@ -24,23 +25,25 @@
       </form>
     </header>
 
-    <div class="ballot-container row">
+    <section class="ballot-container row">
 
       <div class="snapshot option-container six columns">
         <h3 id="nodogHeader"></h3>
-        <div class="photo-container" id="photo-nodog">Without Dogs </div>
+        <figure class="photo-container" id="photo-nodog">Without Dogs </figure>
         <figcaption id="nodogCaption"></figcaption>
         <button id="withoutDogs-button">Select</button>
       </div>
 
       <div class="snapshot option-container six columns">
         <h3 id="dogHeader"></h3>
-        <div class="photo-container" id="photo-dog">With Dogs</div>
+        <figure class="photo-container" id="photo-dog">With Dogs</figure>
         <figcaption id="dogCaption"></figcaption>
         <button id="withDogs-button">Select</button>
       </div>
-</div>
-<section class="row">
+
+    </section>
+
+    <section class="row">
       <div class="option-container">
         <div class="verdictButtons-container">
           <button id="vote-button">VOTE</button>
@@ -51,7 +54,6 @@
           <p id="verdict-text"></p>
         </div>
       </div>
-
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

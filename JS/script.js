@@ -5,21 +5,23 @@ var search = function(){
   //using feed that requires API key
   var flickrBaseURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search"
 
+  var maxResults = 50; // cannot be more than 500
+
   var api_key = "&api_key=fa3e0832f30851339c73d3dd3c27f961";
   var tags = "&tags=" + $flickrSearch;
   var tagsDog = "&tags=" + $flickrSearch + ",dog,pet";
   var sort = "&sort=relevance";
+  var total = "&per_page=" + maxResults;
   var format = "&format=json";
   var nojsoncallback = "&nojsoncallback=1";
 
   //assemble the parts into complete request
-  var flickrReq = flickrBaseURL + api_key + tags + sort + format + nojsoncallback;
-  var flickrReqDog = flickrBaseURL + api_key + tagsDog + sort + format + nojsoncallback;
-
+  var flickrReq = flickrBaseURL + api_key + tags + sort + total + format + nojsoncallback;
+  var flickrReqDog = flickrBaseURL + api_key + tagsDog + sort + total + format + nojsoncallback;
 
   function showPhotosDog(data) {
     //randomly choose a photo from the array returned
-    var nextDog = Math.floor(Math.random() * 20) + 1;
+    var nextDog = Math.floor(Math.random() * maxResults) + 1;
 
     var farm = data.photos.photo[nextDog].farm;
     var server = data.photos.photo[nextDog].server;
@@ -28,7 +30,7 @@ var search = function(){
 
     //assemble the parts into a complete URL for the photo
     var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
-    + "/" + id + "_" + secret + "_b.jpg";  //underscore letter signals size of resultb
+    + "/" + id + "_" + secret + "_z.jpg";  //underscore letter signals size of resultb
     // z medium 640, 640 on longest side
     // c medium 800, 800 on longest side
     // b large, 1024 on longest side
@@ -48,7 +50,7 @@ var search = function(){
   }
 
   function showPhotosNoDog(data) {
-    var nextItem = Math.floor(Math.random() * 20) + 1;
+    var nextItem = Math.floor(Math.random() * maxResults) + 1;
 
     var farm = data.photos.photo[nextItem].farm;
     var server = data.photos.photo[nextItem].server;
@@ -57,7 +59,7 @@ var search = function(){
 
     //assemble the parts into a complete URL for the photo
     var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
-    + "/" + id + "_" + secret + "_b.jpg";  //underscore letter signals size of resultb
+    + "/" + id + "_" + secret + "_z.jpg";  //underscore letter signals size of result
     // z medium 640, 640 on longest side
     // c medium 800, 800 on longest side
     // b large, 1024 on longest side
@@ -91,7 +93,6 @@ var clearVerdict = function(){
 $('#search-form').submit(function(event) {
   clearVerdict();
   search();
-  console.log("submit search form");
   event.preventDefault();
 });
 

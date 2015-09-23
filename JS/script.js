@@ -96,18 +96,26 @@ $(".again-button").click(function(event){
 });
 
 $(".withDog button").click(function(event){
-  $(".withDog figure").addClass("highlight");
-  $(".noDog figure").removeClass("highlight");
+  if ($(".withDog ").hasClass("highlight")) {
+    $(".withDog ").removeClass("highlight");
+  } else {
+     $(".withDog ").addClass("highlight");
+    $(".noDog ").removeClass("highlight");
+  }
 });
 
 $(".noDog button").click(function(event){
-  $(".noDog figure").addClass("highlight");
-  $(".withDog figure").removeClass("highlight");
+  if ($(".noDog ").hasClass("highlight")) {
+    $(".noDog ").removeClass("highlight");
+  } else {
+    $(".noDog ").addClass("highlight");
+    $(".withDog ").removeClass("highlight");
+  }
 });
 
 $(".vote-button").click(function(event){
-  var checkNoDog = $(".noDog figure").hasClass("highlight");
-  var checkDog = $(".withDog figure").hasClass("highlight");
+  var checkNoDog = $(".noDog ").hasClass("highlight");
+  var checkDog = $(".withDog ").hasClass("highlight");
   if (checkNoDog){
     $(".result-container p").html("Dogs drool...");
   } else if (checkDog){

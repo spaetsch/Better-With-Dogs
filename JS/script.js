@@ -1,3 +1,30 @@
+var buildPhotoLink = function(data, next){
+  var farm = data.photos.photo[next].farm;
+  var server = data.photos.photo[next].server;
+  var id = data.photos.photo[next].id;
+  var secret = data.photos.photo[next].secret;
+
+  //assemble the parts into a complete URL for the photo
+  var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
+  + "/" + id + "_" + secret + "_z.jpg";  //underscore letter signals size of resultb
+  // z medium 640, 640 on longest side
+  // c medium 800, 800 on longest side
+  // b large, 1024 on longest side
+  // h large 1600, 1600 on longest side
+
+  return '<img src="' + photoURL + '">';
+}
+
+var buildCaptionLink = function(data, next){
+  var id = data.photos.photo[next].id;
+  var owner = data.photos.photo[next].owner;
+  var attrURL = "https://www.flickr.com/photos/" + owner + "/" + id + "/";
+  var title = data.photos.photo[next].title;
+
+  return '<a href="' + attrURL + '">' + title + '</a>';
+}
+
+
 var search = function(){
   //get search term entered by user
   var $flickrSearch = $(".searchbox .search-form__input").val();
@@ -23,26 +50,9 @@ var search = function(){
     //randomly choose a photo from the array returned
     var nextDog = Math.floor(Math.random() * maxResults) + 1;
 
-    var farm = data.photos.photo[nextDog].farm;
-    var server = data.photos.photo[nextDog].server;
-    var id = data.photos.photo[nextDog].id;
-    var secret = data.photos.photo[nextDog].secret;
-
-    //assemble the parts into a complete URL for the photo
-    var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
-    + "/" + id + "_" + secret + "_z.jpg";  //underscore letter signals size of resultb
-    // z medium 640, 640 on longest side
-    // c medium 800, 800 on longest side
-    // b large, 1024 on longest side
-    // h large 1600, 1600 on longest side
-
-    var owner = data.photos.photo[nextDog].owner;
-    var attrURL = "https://www.flickr.com/photos/" + owner + "/" + id + "/";
-    var title = data.photos.photo[nextDog].title;
-
     //assemble HTML for img and title link
-    var currentDogPhoto = '<img src="' + photoURL + '">';
-    var currentDogTitle = '<a href="' + attrURL + '">' + title + '</a>';
+    var currentDogPhoto = buildPhotoLink(data, nextDog);
+    var currentDogTitle = buildCaptionLink(data, nextDog);
 
     $('.withDog h3').html($flickrSearch + " with dogs");
     $('.withDog figure').html(currentDogPhoto);
@@ -50,28 +60,11 @@ var search = function(){
   }
 
   function showPhotosNoDog(data) {
-    var nextItem = Math.floor(Math.random() * maxResults) + 1;
-
-    var farm = data.photos.photo[nextItem].farm;
-    var server = data.photos.photo[nextItem].server;
-    var id = data.photos.photo[nextItem].id;
-    var secret = data.photos.photo[nextItem].secret;
-
-    //assemble the parts into a complete URL for the photo
-    var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
-    + "/" + id + "_" + secret + "_z.jpg";  //underscore letter signals size of result
-    // z medium 640, 640 on longest side
-    // c medium 800, 800 on longest side
-    // b large, 1024 on longest side
-    // h large 1600, 1600 on longest side
-
-    var owner = data.photos.photo[nextItem].owner;
-    var attrURL = "https://www.flickr.com/photos/" + owner + "/" + id + "/";
-    var title = data.photos.photo[nextItem].title;
+    var nextPic = Math.floor(Math.random() * maxResults) + 1;
 
     //assemble HTML for img and title link
-    var currentPhoto = '<img src="' + photoURL + '">';
-    var currentTitle = '<a href="' + attrURL + '">' + title + '</a>';
+    var currentPhoto = buildPhotoLink(data, nextPic);
+    var currentTitle = buildCaptionLink(data, nextPic);
     $('.noDog h3').html($flickrSearch + " without dogs");
     $('.noDog figure').html(currentPhoto);
     $(".noDog figcaption").html(currentTitle);

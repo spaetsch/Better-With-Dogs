@@ -77,7 +77,7 @@ var clearChoices = function(){
 }
 
 var clearVerdict = function(){
-  $(".result-container p").html("");
+  $(".result-container p").html("...");
 }
 
 $('.searchbox').submit(function(event) {

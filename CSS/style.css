@@ -5,8 +5,21 @@
 }
 
 /* LAYOUT */
-.noDog, .withDog {
+.site-header {
+  padding-top: 2em;
+}
+.searchbox {
+  padding: 1em 2em 0;
+}
+
+.noDog,
+.withDog,
+.vote-container,
+footer {
   text-align: center;
+}
+.vote-container {
+  margin: 0 auto;
 }
 
 .photo-container img {
@@ -15,7 +28,12 @@
 .photo-container {
   overflow: hidden;
 }
-
+footer {
+  margin-top:1em;
+}
+.vote-container {
+  padding:1em;
+}
 
 /* THEME */
 
@@ -26,7 +44,8 @@ body{
 a {
   text-decoration: none;
 }
-form {
+.searchbox,
+.vote-container {
   background-color: #768A8C
 }
 button {

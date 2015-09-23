@@ -44,9 +44,9 @@ var search = function(){
     var currentDogPhoto = '<img src="' + photoURL + '">';
     var currentDogTitle = '<a href="' + attrURL + '">' + title + '</a>';
 
-    $('#dogHeader').html($flickrSearch + " with dogs");
-    $('#photo-dog').html(currentDogPhoto);
-    $("#dogCaption").html(currentDogTitle);
+    $('.withDog h3').html($flickrSearch + " with dogs");
+    $('.withDog figure').html(currentDogPhoto);
+    $(".withDog figcaption").html(currentDogTitle);
   }
 
   function showPhotosNoDog(data) {
@@ -72,9 +72,9 @@ var search = function(){
     //assemble HTML for img and title link
     var currentPhoto = '<img src="' + photoURL + '">';
     var currentTitle = '<a href="' + attrURL + '">' + title + '</a>';
-    $('#nodogHeader').html($flickrSearch + " without dogs");
-    $('#photo-nodog').html(currentPhoto);
-    $("#nodogCaption").html(currentTitle);
+    $('.noDog h3').html($flickrSearch + " without dogs");
+    $('.noDog figure').html(currentPhoto);
+    $(".noDog figcaption").html(currentTitle);
 
   }
   $.getJSON(flickrReq, showPhotosNoDog);

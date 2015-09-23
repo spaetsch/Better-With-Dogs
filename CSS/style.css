@@ -24,8 +24,8 @@
   overflow: hidden;
 }
 .photo-container {
-    height: 20em;
-  }
+  height: 20em;
+}
 
 
 /* THEME */
@@ -48,9 +48,9 @@ button {
 button:hover {
   background-color: #78D2DE;
 }
-.ballot-container{
+/*.ballot-container{
   background-color: #768A8C;
-}
+}*/
 .option-container{
   background-color: #3F6F75;
 }

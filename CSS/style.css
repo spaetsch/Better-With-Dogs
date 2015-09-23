@@ -5,17 +5,17 @@
 }
 
 /* LAYOUT */
+.noDog, .withDog {
+  text-align: center;
+}
 
 .photo-container img {
-  height: 100%;
+  height: 30em;
 }
 .photo-container {
-  text-align: center;
   overflow: hidden;
 }
-.photo-container {
-  height: 20em;
-}
+
 
 /* THEME */
 

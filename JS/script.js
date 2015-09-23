@@ -7,10 +7,12 @@ var buildPhotoLink = function(data, next){
   //assemble the parts into a complete URL for the photo
   var photoURL = "https://farm" + farm + ".staticflickr.com/" + server
   + "/" + id + "_" + secret + "_z.jpg";  //underscore letter signals size of resultb
+  // q large square 150x150
+  // m small, 240 on longest side
+  // n small, 320 on longest side
   // z medium 640, 640 on longest side
   // c medium 800, 800 on longest side
-  // b large, 1024 on longest side
-  // h large 1600, 1600 on longest side
+
 
   return '<img src="' + photoURL + '">';
 }
@@ -21,7 +23,7 @@ var buildCaptionLink = function(data, next){
   var attrURL = "https://www.flickr.com/photos/" + owner + "/" + id + "/";
   var title = data.photos.photo[next].title;
 
-  return '<a href="' + attrURL + '">' + title + '</a>';
+  return '<figcaption><a href="' + attrURL + '">' + title + '</a></figcaption>';
 }
 
 
@@ -52,11 +54,11 @@ var search = function(){
 
     //assemble HTML for img and title link
     var currentDogPhoto = buildPhotoLink(data, nextDog);
-    var currentDogTitle = buildCaptionLink(data, nextDog);
+    var currentDogCaption = buildCaptionLink(data, nextDog);
 
     $('.withDog h3').html($flickrSearch + " with dogs");
     $('.withDog figure').html(currentDogPhoto);
-    $(".withDog figcaption").html(currentDogTitle);
+    $(".withDog figure").append(currentDogCaption);
   }
 
   function showPhotosNoDog(data) {
@@ -64,10 +66,10 @@ var search = function(){
 
     //assemble HTML for img and title link
     var currentPhoto = buildPhotoLink(data, nextPic);
-    var currentTitle = buildCaptionLink(data, nextPic);
+    var currentCaption = buildCaptionLink(data, nextPic);
     $('.noDog h3').html($flickrSearch + " without dogs");
     $('.noDog figure').html(currentPhoto);
-    $(".noDog figcaption").html(currentTitle);
+    $(".noDog figure").append(currentCaption);
 
   }
   $.getJSON(flickrReq, showPhotosNoDog);

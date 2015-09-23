@@ -72,8 +72,8 @@ var search = function(){
 }
 
 var clearChoices = function(){
-  $(".noDog figure").removeClass("highlight");
-  $(".withDog figure").removeClass("highlight");
+  $(".noDog").removeClass("highlight");
+  $(".withDog").removeClass("highlight");
 }
 
 var clearVerdict = function(){

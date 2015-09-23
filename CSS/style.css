@@ -4,21 +4,11 @@
   box-sizing: border-box;
 }
 
-
-
 /* LAYOUT */
-.site-header {
-  width: 100%;
-}
-.site-header__heading,
-#search-form {
-  display: inline-block;
-}
 
 .photo-container img {
   height: 100%;
 }
-
 .photo-container {
   text-align: center;
   overflow: hidden;
@@ -26,7 +16,6 @@
 .photo-container {
   height: 20em;
 }
-
 
 /* THEME */
 
@@ -48,13 +37,9 @@ button {
 button:hover {
   background-color: #78D2DE;
 }
-/*.ballot-container{
-  background-color: #768A8C;
-}*/
-.option-container{
-  background-color: #3F6F75;
-}
-#dogHeader, #nodogHeader {
+
+.withDog h3,
+.noDog h3 {
   text-transform: capitalize;
 }
 .snapshot {

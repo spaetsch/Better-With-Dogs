@@ -1,6 +1,6 @@
 var search = function(){
   //get search term entered by user
-  var $flickrSearch = $("#flickr-search").val();
+  var $flickrSearch = $(".searchbox .search-form__input").val();
 
   //using feed that requires API key
   var flickrBaseURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search"
@@ -82,45 +82,45 @@ var search = function(){
 }
 
 var clearChoices = function(){
-  $("#photo-nodog").removeClass("highlight");
-  $("#photo-dog").removeClass("highlight");
+  $(".noDog figure").removeClass("highlight");
+  $(".withDog figure").removeClass("highlight");
 }
 
 var clearVerdict = function(){
-  $("#verdict-text").html("");
+  $(".result-container p").html("");
 }
 
-$('#search-form').submit(function(event) {
+$('.searchbox').submit(function(event) {
   clearVerdict();
   search();
   event.preventDefault();
 });
 
-$("#again-button").click(function(event){
+$(".again-button").click(function(event){
   clearChoices();
   clearVerdict();
   search();
 });
 
-$("#withDogs-button").click(function(event){
-  $("#photo-dog").addClass("highlight");
-  $("#photo-nodog").removeClass("highlight");
+$(".withDog button").click(function(event){
+  $(".withDog figure").addClass("highlight");
+  $(".noDog figure").removeClass("highlight");
 });
 
-$("#withoutDogs-button").click(function(event){
-  $("#photo-nodog").addClass("highlight");
-  $("#photo-dog").removeClass("highlight");
+$(".noDog button").click(function(event){
+  $(".noDog figure").addClass("highlight");
+  $(".withDog figure").removeClass("highlight");
 });
 
-$("#vote-button").click(function(event){
-  var checkNoDog = $("#photo-nodog").hasClass("highlight");
-  var checkDog = $("#photo-dog").hasClass("highlight");
+$(".vote-button").click(function(event){
+  var checkNoDog = $(".noDog figure").hasClass("highlight");
+  var checkDog = $(".withDog figure").hasClass("highlight");
   if (checkNoDog){
-    $("#verdict-text").html("Dogs drool...");
+    $(".result-container p").html("Dogs drool...");
   } else if (checkDog){
-    $("#verdict-text").html("Dogs rule!");
+    $(".result-container p").html("Dogs rule!");
   } else {
-    $("#verdict-text").html("Please make a selection");
+    $(".result-container p").html("Please make a selection");
   }
   clearChoices();
 });
